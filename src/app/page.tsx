@@ -15,7 +15,7 @@ export default function Home() {
             className="bg-blue-500 text-white p-2 rounded-md"
             onClick={() => setTheme("light")}
           >
-            light
+            light a
           </button>
           <button
             className="bg-blue-500 text-white p-2 rounded-md"
