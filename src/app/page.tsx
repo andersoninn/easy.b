@@ -23,18 +23,18 @@ export default function Home() {
   return (
     <div className="flex flex-col h-full w-full">
       {/* Header fixo */}
-      <header className="h-16 flex items-center justify-between px-6 bg-white border-b border-gray-200 shadow-sm">
-        <div className="flex items-center gap-4">
+      <header className="h-16 flex items-center justify-between px-6 bgborder-b border-gray-200 shadow-sm">
+        <div className="flex items-center -ml-2 md:-ml-4">
           <SidebarTrigger />
         </div>
 
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-6 md:gap-4 sm:gap-3">
           <AnimatedThemeToggler />
-          <Bolt className="size-6" />
+          <Bolt className="size-4 lg:size-5" />
           {!notification ? (
-            <Bell className="size-6" />
+            <Bell className="size-4 lg:size-5" />
           ) : (
-            <BellDot className="size-6" />
+            <BellDot className="size-4 lg:size-5" />
           )}
           <UserDropDownMenu />
         </div>
