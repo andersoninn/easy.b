@@ -3,8 +3,8 @@
 import {
   useSidebarStore,
   useSelectedItem,
-} from "@/components/Sidebar/SidebarStore";
-import { UserDropDownMenu } from "@/components/Sidebar/UserDropDownMenu";
+} from "@/components/sidebar/SidebarStore";
+import { UserDropDownMenu } from "@/components/menuTopSide/UserDropDownMenu";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { Card, CardTitle, CardHeader } from "@/components/ui/card";
 import { SidebarTrigger } from "@/components/ui/sidebar";
