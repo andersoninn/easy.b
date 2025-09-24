@@ -1,8 +1,6 @@
-'use client'
+"use client";
 import {
   Calendar,
-  ChevronDown,
-  Home,
   Inbox,
   LayoutDashboard,
   Search,
@@ -20,19 +18,12 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "../ui/dropdown-menu";
 import Image from "next/image";
 import {
   useSidebarStore,
   useSelectedItem,
   type SidebarItem,
 } from "./SidebarStore";
-import { useEffect } from "react";
 
 // Menu items com IDs únicos
 const items: SidebarItem[] = [
@@ -72,9 +63,6 @@ export function SidebarApp() {
   const selectedItem = useSelectedItem();
   const { setSelectedItem } = useSidebarStore();
 
-  // Inicializar os itens no store quando o componente montar
-
-
   const handleItemClick = (itemId: string) => {
     setSelectedItem(itemId);
   };
@@ -87,9 +75,13 @@ export function SidebarApp() {
             <SidebarMenuButton>
               <Image src="/logo.png" alt="logo" width={32} height={32} />
               <div>
-                <span className="text-2xl font-bold text-[#353F49]">easy</span>
+                <span className="text-2xl font-bold light:text-[#353F49] dark:text-[#ffffff]">
+                  easy
+                </span>
                 <span className="text-2xl font-bold text-[#26BA92]">.</span>
-                <span className="text-2xl font-bold text-[#353F49]">b</span>
+                <span className="text-2xl font-bold light:text-[#353F49] dark:text-[#ffffff]">
+                  b
+                </span>
               </div>
             </SidebarMenuButton>
           </SidebarMenu>

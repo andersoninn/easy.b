@@ -1,29 +1,22 @@
 "use client";
 
-import {
-  useSidebarStore,
-  useSelectedItem,
-} from "@/components/sidebar/SidebarStore";
+import { useSelectedItem } from "@/components/sidebar/SidebarStore";
 import { UserDropDownMenu } from "@/components/menuTopSide/UserDropDownMenu";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
-import { Card, CardTitle, CardHeader } from "@/components/ui/card";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Bell, BellDot, Bolt } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useState } from "react";
+import { Dashboard } from "@/components/Dashbord/Dashboard";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
-
-  const { items } = useSidebarStore();
   const selectedItem = useSelectedItem();
 
-  const [notification, setNotification] = useState(false);
+  const [notification] = useState(false);
 
   return (
     <div className="flex flex-col h-full w-full">
       {/* Header fixo */}
-      <header className="h-16 flex items-center justify-between px-6 bgborder-b border-gray-200 shadow-sm">
+      <header className="h-16 flex items-center justify-between px-6 bgborder-b border-gray-200 ">
         <div className="flex items-center -ml-2 md:-ml-4">
           <SidebarTrigger />
         </div>
@@ -41,8 +34,9 @@ export default function Home() {
       </header>
 
       {/* Conteúdo principal */}
-      <main className="flex-1 overflow-auto bg-[#ECECEC] p-6">
+      <main className="flex-1 overflow-auto bg-[#ECECEC] p-6 rounded-tl-2xl inset-shadow-sm">
         <div className="max-w-7xl mx-auto">
+          {selectedItem === "dashboard" && <Dashboard />}
           <p className="text-lg">
             Item selecionado: {selectedItem || "Nenhum"}
           </p>
