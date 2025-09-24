@@ -37,12 +37,10 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SidebarProvider>
-            <SidebarApp />
-
-            <main>
-              <SidebarTrigger />
-              {children}
-            </main>
+            <div className="flex h-screen w-full">
+              <SidebarApp />
+              <main className="flex-1 overflow-auto">{children}</main>
+            </div>
           </SidebarProvider>
         </ThemeProvider>
       </body>

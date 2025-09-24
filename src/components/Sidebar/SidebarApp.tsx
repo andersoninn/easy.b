@@ -1,3 +1,4 @@
+'use client'
 import {
   Calendar,
   ChevronDown,
@@ -26,30 +27,41 @@ import {
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
 import Image from "next/image";
+import {
+  useSidebarStore,
+  useSelectedItem,
+  type SidebarItem,
+} from "./SidebarStore";
+import { useEffect } from "react";
 
-// Menu items.
-const items = [
+// Menu items com IDs únicos
+const items: SidebarItem[] = [
   {
+    id: "dashboard",
     title: "Dashboard",
     url: "#",
     icon: LayoutDashboard,
   },
   {
+    id: "inbox",
     title: "Inbox",
     url: "#",
     icon: Inbox,
   },
   {
+    id: "calendar",
     title: "Calendar",
     url: "#",
     icon: Calendar,
   },
   {
+    id: "search",
     title: "Search",
     url: "#",
     icon: Search,
   },
   {
+    id: "settings",
     title: "Settings",
     url: "#",
     icon: Settings,
@@ -57,8 +69,18 @@ const items = [
 ];
 
 export function SidebarApp() {
+  const selectedItem = useSelectedItem();
+  const { setSelectedItem } = useSidebarStore();
+
+  // Inicializar os itens no store quando o componente montar
+
+
+  const handleItemClick = (itemId: string) => {
+    setSelectedItem(itemId);
+  };
+
   return (
-    <Sidebar collapsible="icon" className="">
+    <Sidebar collapsible="icon" className="" variant="inset">
       <SidebarContent>
         <SidebarHeader>
           <SidebarMenu>
@@ -78,8 +100,13 @@ export function SidebarApp() {
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
-                <SidebarMenuItem key={item.title}>
-                  <SidebarMenuButton asChild className=" h-12 w-full">
+                <SidebarMenuItem key={item.id}>
+                  <SidebarMenuButton
+                    asChild
+                    className="h-12 w-full"
+                    isActive={selectedItem === item.id}
+                    onClick={() => handleItemClick(item.id)}
+                  >
                     <a href={item.url}>
                       <item.icon className="" />
                       <span>{item.title}</span>
