@@ -75,11 +75,11 @@ export function SidebarApp() {
             <SidebarMenuButton>
               <Image src="/logo.png" alt="logo" width={32} height={32} />
               <div>
-                <span className="text-2xl font-bold light:text-[#353F49] dark:text-[#ffffff]">
+                <span className="text-2xl font-bold text-[#353F49] dark:text-[#ffffff]">
                   easy
                 </span>
                 <span className="text-2xl font-bold text-[#26BA92]">.</span>
-                <span className="text-2xl font-bold light:text-[#353F49] dark:text-[#ffffff]">
+                <span className="text-2xl font-bold text-[#353F49] dark:text-[#ffffff]">
                   b
                 </span>
               </div>
