@@ -19,11 +19,8 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
-import {
-  useSidebarStore,
-  useSelectedItem,
-  type SidebarItem,
-} from "./SidebarStore";
+import { SidebarItem, useSelectedItem, useSidebarStore } from "./SidebarStore";
+
 
 // Menu items com IDs únicos
 const items: SidebarItem[] = [

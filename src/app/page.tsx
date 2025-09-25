@@ -1,12 +1,12 @@
 "use client";
 
-import { useSelectedItem } from "@/components/sidebar/SidebarStore";
 import { UserDropDownMenu } from "@/components/menuTopSide/UserDropDownMenu";
 import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Bell, BellDot, Bolt } from "lucide-react";
 import { useState } from "react";
 import { Dashboard } from "@/components/dashbord/Dashboard";
+import { useSelectedItem } from "@/components/sidebar/SidebarStore";
 
 export default function Home() {
   const selectedItem = useSelectedItem();
