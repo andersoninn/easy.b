@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 
-export function Dashboard() {
+export default function Dashboard() {
   return (
     <>
       <section className="flex flex-wrap gap-4">
