@@ -56,7 +56,7 @@ const items: SidebarItem[] = [
   },
 ];
 
-export function SidebarApp() {
+export default function SidebarApp() {
   const selectedItem = useSelectedItem();
   const { setSelectedItem } = useSidebarStore();
 
