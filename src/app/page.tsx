@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div className="flex flex-col h-full w-full">
       {/* Header fixo */}
-      <header className="h-16 flex items-center justify-between px-6 border-b border-gray-200 ">
+      <header className="h-16 flex items-center justify-between px-6">
         <div className="flex items-center -ml-2 md:-ml-4">
           <SidebarTrigger />
         </div>
@@ -34,7 +34,7 @@ export default function Home() {
       </header>
 
       {/* Conteúdo principal */}
-      <main className="flex-1 overflow-auto bg-[#ECECEC] p-6 rounded-tl-2xl inset-shadow-sm">
+      <main className="flex-1 overflow-auto bg-[#ECECEC] dark:bg-[#1B1B1B] p-6 rounded-tl-2xl inset-shadow-sm">
         <div className="max-w-7xl mx-auto">
           {selectedItem === "dashboard" && <Dashboard />}
           <p className="text-lg">
