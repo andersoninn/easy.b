@@ -1,6 +1,5 @@
 import IncomeExpenseCard from "./IncomeExpenseCard";
 import TotalBalanceCard from "./TotalBalanceCard";
-import { ChartAreaDefault } from "./TotalBalanceChart";
 
 export default function Dashboard() {
   return (

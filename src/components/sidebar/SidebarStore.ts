@@ -1,6 +1,33 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-import { LucideIcon } from "lucide-react";
+import {
+  BanknoteArrowDown,
+  BanknoteArrowUp,
+  Calendar,
+  LayoutDashboard,
+  LucideIcon,
+  Settings,
+  Users,
+} from "lucide-react";
+
+export const items: SidebarItem[] = [
+  { id: "dashboard", title: "Dashboard", url: "#", icon: LayoutDashboard },
+  { id: "Receitas", title: "Receitas", url: "#", icon: BanknoteArrowUp },
+  { id: "Despesas", title: "Despesas", url: "#", icon: BanknoteArrowDown },
+  { id: "Calendário", title: "Calendário", url: "#", icon: Calendar },
+  {
+    id: "equipeManager",
+    title: "Gestão de Equipe",
+    url: "#",
+    icon: Users,
+  },
+  {
+    id: "Configurações",
+    title: "Configurações",
+    url: "#",
+    icon: Settings,
+  },
+];
 
 // Tipos para os itens da sidebar
 export interface SidebarItem {

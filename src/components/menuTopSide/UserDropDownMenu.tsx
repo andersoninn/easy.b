@@ -15,39 +15,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import UserAvatar from "../UserAvatar";
-
-// Função para truncar texto
-const truncateText = (text: string, maxLength: number = 12): string => {
-  if (text.length <= maxLength) {
-    return text;
-  }
-  return text.substring(0, maxLength) + "...";
-};
-
-// Componente para exibir texto truncado com tooltip
-interface TruncatedTextProps {
-  text: string;
-  maxLength?: number;
-  className?: string;
-}
-
-const TruncatedText = ({
-  text,
-  maxLength = 12,
-  className = "",
-}: TruncatedTextProps) => {
-  const truncatedText = truncateText(text, maxLength);
-  const isTruncated = text.length > maxLength;
-
-  return (
-    <span title={isTruncated ? text : undefined} className={className}>
-      {truncatedText}
-    </span>
-  );
-};
+import { TruncatedText } from "@/helpers/TruncateText";
+import { account } from "@/db/modelDB";
 
 export function UserDropDownMenu() {
-  const userName = "Anderson Carvalho";
   const userRole = "Gerente de Projetos";
 
   return (
@@ -58,12 +29,18 @@ export function UserDropDownMenu() {
           className="flex items-center gap-2 h-13 bg-gray-100 !px-2 border-none"
         >
           <article className="w-8 h-8 rounded-sm overflow-hidden bg-gray-300">
-            <UserAvatar />
+            <UserAvatar
+              firstName={account.firstName}
+              lastName={account.lastName}
+            />
           </article>
           <article className="flex flex-col items-start mr-2">
-            <TruncatedText text={userName} maxLength={12} />
             <TruncatedText
-              text={userRole}
+              text={`${account.firstName} ${account.lastName}`}
+              maxLength={12}
+            />
+            <TruncatedText
+              text={account.permission}
               maxLength={8}
               className="text-sm text-gray-500 font-light"
             />

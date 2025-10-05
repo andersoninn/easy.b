@@ -7,6 +7,7 @@ import { Bell, BellDot, Bolt } from "lucide-react";
 import { useState } from "react";
 import Dashboard from "@/components/dashboard/Dashboard";
 import { useSelectedItem } from "@/components/sidebar/SidebarStore";
+import EquipeManager from "@/components/equipeManager/EquipeManager";
 
 export default function Home() {
   const selectedItem = useSelectedItem();
@@ -37,9 +38,10 @@ export default function Home() {
       <main className="flex-1 overflow-auto bg-[#ECECEC] dark:bg-[#1B1B1B] p-6 rounded-tl-2xl inset-shadow-sm">
         <div className="max-w-7xl mx-auto">
           {selectedItem === "dashboard" && <Dashboard />}
-          <p className="text-lg">
+          {selectedItem === "equipeManager" && <EquipeManager />}
+          {/* <p className="text-lg">
             Item selecionado: {selectedItem || "Nenhum"}
-          </p>
+          </p> */}
         </div>
       </main>
     </div>

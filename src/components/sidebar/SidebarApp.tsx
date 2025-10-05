@@ -1,15 +1,4 @@
 "use client";
-import {
-  BanknoteArrowDown,
-  BanknoteArrowDownIcon,
-  BanknoteArrowUp,
-  Calendar,
-  Inbox,
-  LayoutDashboard,
-  Search,
-  Settings,
-  Users,
-} from "lucide-react";
 
 import {
   Sidebar,
@@ -24,31 +13,19 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Image from "next/image";
-import { SidebarItem, useSelectedItem, useSidebarStore } from "./SidebarStore";
+import {
+  items,
+  SidebarItem,
+  useSelectedItem,
+  useSidebarStore,
+} from "./SidebarStore";
 import useLoadingTimeline from "@/hooks/useLoadingTimeline";
-
-const items: SidebarItem[] = [
-  { id: "dashboard", title: "Dashboard", url: "#", icon: LayoutDashboard },
-  { id: "Receitas", title: "Receitas", url: "#", icon: BanknoteArrowUp },
-  { id: "Despesas", title: "Despesas", url: "#", icon: BanknoteArrowDown },
-  { id: "Calendário", title: "Calendário", url: "#", icon: Calendar },
-  {
-    id: "Funcionários",
-    title: "Gestão de Funcionários",
-    url: "#",
-    icon: Users,
-  },
-  {
-    id: "Configurações",
-    title: "Configurações",
-    url: "#",
-    icon: Settings,
-  },
-];
+import { useIsMobile } from "@/hooks/use-mobile";
 
 export default function SidebarApp() {
   const selectedItem = useSelectedItem();
   const { setSelectedItem } = useSidebarStore();
+  const isMobile = useIsMobile();
 
   const { refs, registerItemRef } = useLoadingTimeline(
     { duration: 0.45, stagger: 0.07, autoPlay: true },
@@ -60,7 +37,10 @@ export default function SidebarApp() {
   return (
     <Sidebar collapsible="icon" variant="inset">
       <SidebarContent>
-        <div ref={refs.rootRef} className="opacity-0">
+        <div
+          ref={refs.rootRef}
+          className={isMobile ? "opacity-100" : "opacity-0"}
+        >
           {/* ... */}
           <SidebarHeader>
             <SidebarMenu>
